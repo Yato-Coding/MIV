@@ -5,6 +5,13 @@
 
 DefaultState::DefaultState(Coordinates& coords) : coords(coords){}
 
+/* TODO: Rework Movement
+*  Rework movement so that it has the following attributes:
+*  - Dont go past the end of a line
+*  - Dont go offscreen 
+*  - Dont go past the end of the buffer
+*/
+
 void DefaultState::handleInput(ModeStateMachine& stateMachine, int c){
     switch(c){
         case 'i':
