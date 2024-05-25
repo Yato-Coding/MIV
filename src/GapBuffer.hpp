@@ -29,8 +29,9 @@ public:
     void drawBuffer();
 
     // Getters, mostly for Testing Purposes
-    std::vector<char> getBuffer() { return buffer; }; 
+    std::vector<char>& getBuffer() { return buffer; }; 
     Gap& getGap() { return gap; }
+    int getBufferLength(){return buffer.size() - gap.currentLength;}
 };
 
 #endif

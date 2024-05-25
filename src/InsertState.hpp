@@ -15,6 +15,7 @@ private:
 public:
     ~InsertState() = default;
     InsertState(GapBuffer& gapBuffer, Coordinates& cursorPosition);
+    void calculateCursor();
     void handleInput(ModeStateMachine& stateMachine, int c);
 };
 

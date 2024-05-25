@@ -14,19 +14,19 @@ void DefaultState::handleInput(ModeStateMachine& stateMachine, int c){
             stateMachine.setState(State::COMMANDS);
             return;
         case 'l':
-            move(coords.y, ++coords.cursorPosition);
+            move(coords.y, ++coords.x);
             break;
         case 'h':
-            move(coords.y, --coords.cursorPosition);
+            move(coords.y, --coords.x);
             break;
         case 'j':
-            move(++coords.y, coords.cursorPosition);
+            move(++coords.y, coords.x);
             break;
         case 'k':
-            move(--coords.y, coords.cursorPosition);
+            move(--coords.y, coords.x);
             break;
         default:
-            move(coords.y, coords.cursorPosition);
+            move(coords.y, coords.x);
             break;
     }
 }

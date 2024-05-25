@@ -54,8 +54,7 @@ void GapBuffer::deleteChar(){
 }
 
 void GapBuffer::moveCursor(int cursorPosition){
-    const int bufferLength = buffer.size() - gap.currentLength;
-    if(cursorPosition >= 0 && cursorPosition <= bufferLength){
+    if(cursorPosition >= 0 && cursorPosition <= getBufferLength()){
         if(cursorPosition < gap.leftEdge){
             int moveDistance = gap.leftEdge - cursorPosition;
             for(int i{0}; i < moveDistance; i++){
