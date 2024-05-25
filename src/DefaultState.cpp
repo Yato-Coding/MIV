@@ -3,8 +3,9 @@
 #include "ModeStateMachine.hpp"
 #include "DefaultState.hpp"
 
+DefaultState::DefaultState(Coordinates& coords) : coords(coords){}
 
-void DefaultState::handleInput(ModeStateMachine& stateMachine, char c){
+void DefaultState::handleInput(ModeStateMachine& stateMachine, int c){
     switch(c){
         case 'i':
             stateMachine.setState(State::INSERT);
@@ -13,25 +14,19 @@ void DefaultState::handleInput(ModeStateMachine& stateMachine, char c){
             stateMachine.setState(State::COMMANDS);
             return;
         case 'l':
-            clear();
-            move(y, ++x);
+            move(coords.y, ++coords.cursorPosition);
             break;
         case 'h':
-            clear();
-            move(y, --x);
+            move(coords.y, --coords.cursorPosition);
             break;
         case 'j':
-            clear();
-            move(++y, x);
+            move(++coords.y, coords.cursorPosition);
             break;
         case 'k':
-            clear();
-            move(--y, x);
+            move(--coords.y, coords.cursorPosition);
             break;
         default:
-            clear();
-            move(y, x);
+            move(coords.y, coords.cursorPosition);
             break;
     }
-    refresh();
 }

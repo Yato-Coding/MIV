@@ -6,7 +6,8 @@
 struct Gap{
     int leftEdge;
     int rightEdge;
-    int length;
+    const int length;
+    int currentLength = length;
 }; 
 
 class GapBuffer{
@@ -15,17 +16,20 @@ private:
     Gap gap;
 
 public:
-    GapBuffer(int bufferLength, int gapLength);
+    GapBuffer(int bufferLength = 0, int gapLength = 256);
     ~GapBuffer() = default;
 
-    void insertChar(char c);
+    void createGap();
     void shrinkGap();
+    void insertChar(char c);
     void deleteChar();
-    void extendGap();
-    void moveCursor(int direction);
+    void moveCursor(int cursorPosition);
+    void displayBuffer();
     void printBuffer();
     void drawBuffer();
-    std::vector<char>& getBuffer() { return buffer; }
+
+    // Getters, mostly for Testing Purposes
+    std::vector<char> getBuffer() { return buffer; }; 
     Gap& getGap() { return gap; }
 };
 

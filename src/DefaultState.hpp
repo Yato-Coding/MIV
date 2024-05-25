@@ -1,6 +1,7 @@
 #ifndef MODESTATEMACHINE_HPP
 #define MODESTATEMACHINE_HPP
 
+#include "Coordinates.hpp"
 #include "StateInterface.hpp"
 
 class ModeStateMachine;
@@ -8,11 +9,11 @@ class ModeStateMachine;
 
 class DefaultState : public StateInterface{
 private:
-    int x{0};
-    int y{0};
+    Coordinates& coords;
 public:
     ~DefaultState() = default;
-    void handleInput(ModeStateMachine& stateMachine, char c);
+    DefaultState(Coordinates& coords);
+    void handleInput(ModeStateMachine& stateMachine, int c);
 };
 
 #endif
