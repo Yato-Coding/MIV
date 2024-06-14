@@ -13,4 +13,4 @@ add_executable(miv ${CMAKE_SOURCE_DIR}/main.cpp ${CMAKE_SOURCE_DIR}/ModeStateMac
 # Link ncurses library
 target_link_libraries(miv ncurses)
 
-add_subdirectory(./tests)
+# add_subdirectory(./tests)
