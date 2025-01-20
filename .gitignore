@@ -3,3 +3,4 @@ bin
 build
 tests
 .cache
+compile_commands.json
